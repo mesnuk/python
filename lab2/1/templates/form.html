@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React App</title>
+</head>
+<body>
+<h1>Реєстрація</h1>
+<form method="POST" action="/">
+    <label for="first_name">Ім'я:</label>
+    <input type="text" name="first_name" id="first_name" required><br><br>
+
+    <label for="last_name">Прізвище:</label>
+    <input type="text" name="last_name" id="last_name" required><br><br>
+
+    <label>Виберіть країну:</label>
+    <input type="radio" name="country" value="Україна" id="ukraine">
+    <label for="ukraine">Україна</label>
+    <input type="radio" name="country" value="Куба" id="cuba">
+    <label for="cuba">Куба</label>
+    <input type="radio" name="country" value="США" id="usa">
+    <label for="usa">США</label><br><br>
+
+    <input type="submit" value="Зареєструватися">
+</form>
+
+{% if first_name and last_name and country %}
+<h2>Ваші дані:</h2>
+<p>Ім'я: {{ first_name }}</p>
+<p>Прізвище: {{ last_name }}</p>
+<p>Країна: {{ country }}</p>
+<hr>
+{% endif %}
+</body>
+</html>
