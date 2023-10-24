@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Andrii Sovtus{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header>
+        <div>
+            <h2>Andrii Sovtus</h2>
+            <p>Веб-розробник</p>
+        </div>
+         <nav>
+            <ul>
+                <li><a href="/app/static">Головна</a></li>
+                <li><a href="/resume">Резюме</a></li>
+                <li><a href="/portfolio">Портфоліо</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Andrii</p>
+        <p>Операційна система: {{ os_info }}</p>
+        <p>User Agent: {{ user_agent }}</p>
+        <p>Поточний час: {{ current_time }}</p>
+    </footer>
+
+
+</body>
+</html>
