@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>
+    body {
+    }
+</style>
+
+<div>
+    <div>
+        <div>
+            <h4>Hello</h4>
+            <h2>I'm <span style="color: red;">Sovtus Andiy</span></h2>
+            <h2></h2>
+        </div>
+    </div>
+    <div>
+        <img style="width: 350px;" src="{{ url_for('static', filename='images/img2.jpg.png') }}" alt="">
+    </div>
+</div>
+
+{% endblock %}
