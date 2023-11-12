@@ -27,9 +27,6 @@
 <div>
     <div>
         <div>
-            <img style="width: 350px;" src="{{about_me.image_src}}" alt="">
-        </div>
-        <div>
             <h1 class="title">{{ about_me.main_title }}</h1>
             {% for subtitle, content in about_me.content_dict.items() %}
                 <h4 class="title" style="margin-bottom: 0;">{{ subtitle }}</h4>
