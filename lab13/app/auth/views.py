@@ -33,12 +33,10 @@ def register():
             db.session.add(user)
             db.session.commit()
             flash(f'Account successfully created for {form.username.data}!', 'success')
+            return redirect(url_for('auth.login'))
         except IntegrityError:
             db.session.rollback()
             flash('Something went wrong', 'danger')
-        finally:
-            return redirect(url_for('auth.login'))
-
     return render_template('register.html', form=form)
 
 @auth_blueprint.route("/login", methods=['GET', 'POST'])
@@ -55,10 +53,9 @@ def login():
         if user and user.verify_password(form.password.data):
             login_user(user, remember=form.remember.data)
             flash('You have been logged in successfully!', 'success')
+            return redirect(url_for('auth.account'))
         else:
             flash('Invalid email or password', 'warning')
-
-        return redirect(url_for('auth.account'))
     return render_template("login.html", form=form)
 
 @auth_blueprint.route('/account', methods=['GET', 'POST'])
@@ -106,7 +103,7 @@ def change_password():
 
     return render_template('account.html', change_password_form=form, update_account_form=UpdateAccountForm())
 
-@auth_blueprint.route('/logout', methods=['GET'])
+@auth_blueprint.route('/logout', methods=['POST'])
 def logout():
     logout_user()
     flash('You have been logged out successfully', 'success')
