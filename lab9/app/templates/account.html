@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="wrapper-s">
-    <img alt="..." src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}" style="width: 150px; height: 150px;">
+    <img alt="..." src="{{ url_for('static', filename='profile/' + current_user.image_file) }}" style="width: 150px; height: 150px;">
     <h2>{{ current_user.username }}</h2>
     <span> Last seen: {{current_user.last_seen.strftime('%Y-%m-%d %H:%M:%S')}}</span>
 </div>
