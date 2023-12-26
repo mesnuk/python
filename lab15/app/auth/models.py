@@ -27,5 +27,12 @@ class User(db.Model, UserMixin):
     def set_password(self, password):
         self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
 
+    @property
+    def password(self):
+        raise AttributeError("password is not a readable attribute")
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = bcrypt.generate_password_hash(password=password)
     def verify_password(self, pwd):
         return bcrypt.check_password_hash(self.password_hash, pwd)
